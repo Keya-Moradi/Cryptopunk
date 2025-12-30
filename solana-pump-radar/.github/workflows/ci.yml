@@ -1,0 +1,54 @@
+name: Solana Pump Radar CI
+
+on:
+  pull_request:
+    paths:
+      - 'solana-pump-radar/**'
+      - '.github/workflows/solana-pump-radar-ci.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'solana-pump-radar/**'
+
+jobs:
+  quality-gates:
+    name: Quality Gates
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solana-pump-radar
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: solana-pump-radar/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npm run db:generate
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm run test:ci
+        env:
+          DATABASE_URL: file:./test.db
+          SOLANA_RPC_URL: https://api.mainnet-beta.solana.com
+          WEBHOOK_SECRET: test-secret-for-ci-only
+          NODE_ENV: test
+
+      - name: Build
+        run: npm run build

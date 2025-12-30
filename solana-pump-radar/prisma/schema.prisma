@@ -1,0 +1,40 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model LaunchEvent {
+  id        Int      @id @default(autoincrement())
+  signature String   @unique
+  slot      BigInt
+  blockTime DateTime
+  mint      String
+  creator   String
+  source    String   @default("pumpfun")
+  rawJson   String   // Store full webhook payload for debugging
+  createdAt DateTime @default(now())
+
+  @@index([mint])
+  @@index([blockTime])
+}
+
+model TokenRiskReport {
+  id             Int      @id @default(autoincrement())
+  mint           String   @unique
+  score          Int      // 0-100
+  label          String   // LOW / MED / HIGH
+  reasonsJson    String   // JSON array of reason strings
+  authoritiesJson String  // JSON object with mintAuthority, freezeAuthority
+  topHoldersJson String   // JSON array of top holder percentages
+  computedAt     DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([label])
+  @@index([computedAt])
+}
