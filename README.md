@@ -203,6 +203,71 @@ A subgraph configuration targeting `0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB` 
 
 ---
 
+## Next Steps / Stretch Goals
+
+### Enhanced Risk Assessment Features
+
+**Liquidity Pool Analysis:**
+- Monitor initial liquidity pool (LP) creation and burns
+- Track LP token lock status and unlock schedules
+- Analyze liquidity depth and potential for rug pulls via LP withdrawal
+- Detect honey pot characteristics (can buy but not sell)
+
+**Social Signals Integration:**
+- Aggregate sentiment from X (Twitter) mentions and engagement
+- Monitor Discord/Telegram activity and community size
+- Track developer activity and GitHub commits (if applicable)
+- Analyze influencer promotion patterns and paid shilling detection
+
+**User-Facing Applications:**
+- **Live Demo Dashboard:** Web-based UI with real-time token launch feed, interactive risk charts, and filtering
+- **Telegram Bot:** Push notifications for high-risk launches with configurable alert thresholds
+- **Discord Bot:** Server integration for community-driven token monitoring
+- **Mobile App:** iOS/Android notifications for on-the-go monitoring
+
+### Reference Materials for Future Development
+
+**Liquidity Pool Analysis:**
+- [Raydium API Documentation](https://docs.raydium.io/) - Solana's leading AMM for LP data
+- [Jupiter Aggregator API](https://docs.jup.ag/) - Liquidity aggregation and routing
+- [Orca Whirlpools SDK](https://orca-so.gitbook.io/orca-developer-portal) - Concentrated liquidity pools on Solana
+- [Solana Program Library - Token Swap](https://spl.solana.com/token-swap) - Understanding AMM mechanics
+- [DexScreener API](https://docs.dexscreener.com/api/reference) - Multi-chain DEX analytics
+
+**Social Signals & Sentiment Analysis:**
+- [Twitter/X API v2](https://developer.twitter.com/en/docs/twitter-api) - Real-time tweets and engagement data
+- [Discord.js](https://discord.js.org/) - Discord bot framework
+- [Telegram Bot API](https://core.telegram.org/bots/api) - Telegram bot integration
+- [VADER Sentiment Analysis](https://github.com/cjhutto/vaderSentiment) - Social media sentiment scoring
+- [Natural Language Toolkit (NLTK)](https://www.nltk.org/) - Text processing and sentiment analysis
+
+**Dashboard & Visualization:**
+- [Next.js](https://nextjs.org/) - React framework for production
+- [Recharts](https://recharts.org/) or [Chart.js](https://www.chartjs.org/) - Data visualization
+- [TanStack Query](https://tanstack.com/query/latest) - Data fetching and caching
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable component library
+
+**Bot Development:**
+- [node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api) - Telegram bot SDK
+- [Discord.js Guide](https://discordjs.guide/) - Discord bot development
+- [Bull Queue](https://github.com/OptimalBits/bull) - Redis-based job queue for notifications
+
+**Security & Anti-Rug Detection Research:**
+- [Solana Token Security Best Practices](https://spl.solana.com/token#authority) - Official guidelines
+- [CertiK Skynet](https://www.certik.com/products/skynet) - Security monitoring approach
+- [Token Sniffer](https://tokensniffer.com/) - Automated scam detection methodology
+- [Honeypot Detection Techniques](https://github.com/topics/honeypot-detection) - Community approaches
+
+**Real-Time Data Streaming:**
+- [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) - Push updates to web clients
+- [Socket.io](https://socket.io/) - WebSocket library for real-time bidirectional communication
+- [Redis Pub/Sub](https://redis.io/docs/manual/pubsub/) - Message broker for event distribution
+
+These stretch goals would significantly enhance the platform's value proposition and user adoption while maintaining the core architecture's reliability and performance.
+
+---
+
 ## Screenshots & Visuals
 
 ### Solana Pump Radar API Examples
